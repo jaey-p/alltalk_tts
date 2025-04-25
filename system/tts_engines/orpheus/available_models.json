@@ -1,0 +1,15 @@
+{
+    "first_start_model": "canopylabs/orpheus-tts-0.1-finetune-prod",
+    "models": [
+      {
+        "model_name": "canopylabs/orpheus-tts-0.1-finetune-prod",
+        "folder_path": "canopylabs/orpheus-tts-0.1-finetune-prod",
+        "files_to_download": {}
+      },
+      {
+        "model_name": "canopylabs/orpheus-tts-0.1",
+        "folder_path": "canopylabs/orpheus-tts-0.1",
+        "files_to_download": {}
+      }
+    ]
+}
