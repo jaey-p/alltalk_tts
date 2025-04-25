@@ -128,7 +128,7 @@ def orpheus_model_update_settings(model_name_gr, def_character_voice_gr, def_nar
 # settings page, allowing users to configure various options and voice selections.
 
 # This function needs the engine instance to pass to the voice listing function.
-def orpheus_model_alltalk_settings(engine_instance, model_config_data):
+def orpheus_model_alltalk_settings(model_config_data):
     """Sets up the Gradio interface for the Orpheus settings page."""
     features_list = model_config_data.get('model_capabilties', {})
 
@@ -294,8 +294,8 @@ def orpheus_model_alltalk_settings(engine_instance, model_config_data):
 # After making these changes, this function will create and return the Gradio app for your TTS engine's settings page.
 
 # This main function will need to accept the engine instance.
-def orpheus_at_gradio_settings_page(engine_instance, model_config_data):
+def orpheus_at_gradio_settings_page(model_config_data):
     """Main function to set up the Orpheus Gradio settings page."""
     # Pass the engine instance to the settings layout function
-    app = orpheus_model_alltalk_settings(engine_instance, model_config_data)
+    app = orpheus_model_alltalk_settings(model_config_data)
     return app
