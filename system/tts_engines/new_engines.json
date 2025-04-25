@@ -14,7 +14,7 @@
         },
         {
             "name": "orpheus",
-            "selected_model": "orpheus - canopylabs/orpheus-3b-0.1-ft"
+            "selected_model": "orpheus - unsloth/orpheus-3b-0.1-ft"
         }
     ]
 }

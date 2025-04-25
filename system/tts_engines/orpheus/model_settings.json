@@ -21,7 +21,7 @@
         "mac_capable": true
     },
     "settings": {
-        "model_name": "canopylabs/orpheus-3b-0.1-ft",
+        "model_name": "unsloth/orpheus-3b-0.1-ft",
         "def_character_voice": "tara",
         "def_narrator_voice": "tara",
         "deepspeed_enabled": false,
