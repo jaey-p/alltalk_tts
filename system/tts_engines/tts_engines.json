@@ -21,6 +21,10 @@
         {
             "name": "f5tts",
             "selected_model": "f5tts - f5tts_v1"
+        },
+        {
+            "name": "orpheus",
+            "selected_model": "orpheus - orpheus-tts-0.1-finetune-prod"
         }
     ]
 }
