@@ -363,6 +363,7 @@ install_custom_standalone() {
     pip install deepspeed-0.14.2+cu121torch2.2-cp311-cp311-manylinux_2_24_x86_64.whl
     rm deepspeed-0.14.2+cu121torch2.2-cp311-cp311-manylinux_2_24_x86_64.whl
     pip install -r system/requirements/requirements_parler.txt
+    pip install -r system/requirements/requirements_orpheus.txt
     conda clean --all --force-pkgs-dirs -y
     # Create start_environment.sh to run AllTalk
     cat << EOF > start_environment.sh
@@ -546,6 +547,7 @@ reapply_standalone() {
     echo
     pip install -r system/requirements/requirements_standalone.txt
     pip install -r system/requirements/requirements_parler.txt
+    pip install -r system/requirements/requirements_orpheus.txt
     echo
     echo "    Requirements have been re-applied/updated."
     echo
