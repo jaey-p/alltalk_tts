@@ -413,7 +413,7 @@ class tts_class:
 
         """
         # The Orpheus model is initialized with model_name, store it here
-        self.orpheus_model_name = model_settings_file["settings"].get("model_name", "canopylabs/orpheus-tts-0.1-finetune-prod")
+        self.orpheus_model_name = model_settings_file["settings"].get("model_name", "canopylabs/orpheus-3b-0.1-ft")
 
         # ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
         # ↑↑↑ Add your own central `self.myvariable` variables in here if needed for your engine ↑↑↑
