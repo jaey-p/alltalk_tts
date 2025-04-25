@@ -31,11 +31,13 @@ main_dir = Path(__file__).parent.parent.parent.parent.resolve()    # Sets up sel
 # This function needs access to the Orpheus engine instance to call its voices_file_list method.
 # Assuming the engine instance is passed to the main settings page function.
 # Let's define a placeholder function shape that expects the engine instance.
-def orpheus_voices_file_list(engine_instance):
-    """Retrieves the list of available voices from the Orpheus engine instance."""
-    if engine_instance and hasattr(engine_instance, 'voices_file_list'):
-        return engine_instance.voices_file_list()
-    return ["Error: Engine not initialized or voices_file_list method missing."]
+def orpheus_voices_file_list():
+    """Gathers a list of available voice files in the voices directory."""
+    voice_dir = main_dir / "voices"
+    voice_list = [f for f in os.listdir(voice_dir) if f.endswith('.wav')]
+    if not voice_list:
+        return ["No voices found in ./voices/"]
+    return voice_list
 
 
 ######################################################
@@ -132,8 +134,8 @@ def orpheus_model_alltalk_settings(model_config_data):
     """Sets up the Gradio interface for the Orpheus settings page."""
     features_list = model_config_data.get('model_capabilties', {})
 
-    # Get voices using the helper function which requires the engine instance
-    voice_list = orpheus_voices_file_list(engine_instance)
+    # Get voices using the helper function
+    voice_list = orpheus_voices_file_list()
 
     with gr.Blocks(title="Orpheus TTS", analytics_enabled=False) as app:
         with gr.Tab("Default Settings"):
