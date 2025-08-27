@@ -1,20 +1,20 @@
 import numpy as np
 import re
 import unicodedata
-from fairseq import checkpoint_utils
-from fairseq.data import Dictionary
-import torch
 
+# Next 2 lines are a fix for fairseq to be compatible with pytorch > 2.6
+import sys
+sys.path = [str(p) for p in sys.path]
+
+from fairseq import checkpoint_utils
+import torch
 import logging
 
 logging.getLogger("fairseq").setLevel(logging.WARNING)
 import sys
-import os
 import numpy as np
-import asyncio
 import ffmpeg
 from pathlib import Path
-import subprocess
 
 # Get the parent directory of the current file
 this_dir = Path(__file__).resolve().parent.parent.parent.parent.parent

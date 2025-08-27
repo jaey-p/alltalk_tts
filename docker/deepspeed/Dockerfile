@@ -2,7 +2,7 @@ ARG DOCKER_REPOSITORY
 ARG DOCKER_TAG=latest
 FROM ${DOCKER_REPOSITORY}alltalk_tts_environment:${DOCKER_TAG}
 
-ARG DEEPSPEED_VERSION=0.16.3
+ARG DEEPSPEED_VERSION=0.17.2
 ENV DEEPSPEED_VERSION=$DEEPSPEED_VERSION
 
 WORKDIR ${ALLTALK_DIR}
@@ -27,15 +27,6 @@ RUN <<EOR
   cd ${ALLTALK_DIR}/DeepSpeed
   git checkout .
   git checkout "tags/v${DEEPSPEED_VERSION}" -b "v${DEEPSPEED_VERSION}"
-
-  # Patching some files due to bug https://github.com/microsoft/DeepSpeed/issues/6709
-  START_LINE=`awk '/#ifndef BF16_AVAILABLE/{ print NR; exit }' csrc/transformer/inference/csrc/gelu.cu`
-  TO_LINE=$((START_LINE + 2))
-  sed -i "${START_LINE},${TO_LINE}d" ./csrc/transformer/inference/csrc/gelu.cu
-
-  START_LINE=`awk '/#ifndef BF16_AVAILABLE/{ print NR; exit }' csrc/transformer/inference/csrc/transform.cu`
-  TO_LINE=$((START_LINE + 2))
-  sed -i "${START_LINE},${TO_LINE}d" ./csrc/transformer/inference/csrc/transform.cu
 EOR
 
 ##############################################################################

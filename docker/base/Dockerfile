@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3:24.7.1-0 AS build
 
-ARG CUDA_VERSION=12.6.0
+ARG CUDA_VERSION=12.8.1
 ENV CUDA_VERSION=$CUDA_VERSION
 
 ARG PYTHON_VERSION=3.11.11
@@ -53,7 +53,8 @@ RUN <<EOR
       cuda-command-line-tools=${CUDA_VERSION} cuda-compiler=${CUDA_VERSION} cuda-runtime=${CUDA_VERSION} \
       cuda-libraries=${CUDA_VERSION} cuda-libraries-dev=${CUDA_VERSION} cuda-libraries-static=${CUDA_VERSION} \
       cuda-cudart=${CUDA_SHORT_VERSION} cuda-cudart_linux-64=${CUDA_SHORT_VERSION} \
-      cudnn=9.3 \
+      conda-forge::nccl=2.27.5.1 \
+      cudnn=9.10 \
       py-cpuinfo=9 \
       conda-forge::ffmpeg=7.1.0 \
       conda-forge::portaudio=19.7.0 \
@@ -76,7 +77,7 @@ RUN <<EOR
   conda activate alltalk
   mkdir -p ${ALLTALK_DIR}/pip_cache
   pip install --no-cache-dir --cache-dir=${ALLTALK_DIR}/pip_cache \
-      torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu${CUDA_SHORT_VERSION_NO_DOT}
+      torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu${CUDA_SHORT_VERSION_NO_DOT}
 
   if [ $? -ne 0 ] ; then
     echo "Failed to install pip dependencies: $RESULT"

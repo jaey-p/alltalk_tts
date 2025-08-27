@@ -3,7 +3,7 @@ The Docker image currently works on Windows and Linux supporting NVIDIA GPUs.
 
 ## System requirements
 - AMD compatible Windows or Linux system
-- CUDA 12.6
+- CUDA 12.8
 - Nvidia Docker Container Toolkit
 - At least 25GB of free disk space
 
@@ -34,7 +34,7 @@ visit `http://localhost:7851/`. See instructions below for passing more argument
 4. Download CUDA toolkit keyring: `wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.1-1_all.deb`
 5. Install keyring: `sudo dpkg -i cuda-keyring_1.1-1_all.deb`
 6. Update package list: `sudo apt-get update`
-7. Install CUDA toolkit: `sudo apt-get -y install cuda-toolkit-12-6`
+7. Install CUDA toolkit: `sudo apt-get -y install cuda-toolkit-12-8`
 8. Install Docker Desktop using WSL2 as the backend
 9. Restart
 10. If you wish to monitor the terminal remotely via SSH, follow [this guide](https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine).
@@ -108,3 +108,8 @@ reason, you may want to use `docker-build.sh` with the following arguments:
     - Example: `docker-build.sh --clean`
 
 
+# Older images
+- CUDA 12.6:
+  - XTTS  Dockerhub hash: sha256:fd4741714af0c82e4e7a66bf9ae47c98f3e51ebefdb3af5795b47d41ca5fb159
+  - VITS Dockerhub hash: sha256:9f411e8fdb997486bc217fcd316bf6b163c39736655ea3400028ad4fcc5c60f9
+  - Piper:  Dockerhub hash: sha256:6ae2520051bb00a0356dc4ed80a33bf6784cb567b59759af46046ddcf356b765
